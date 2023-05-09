@@ -1,21 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="d-flex justify-content-center align-items-center h-100">
+    <div class="d-flex justify-content-center align-items-center h-100 mt-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-7 col-lg-5 bg-gray border rounded">
                     <div class="p-md-5">
-                        <h3>Sign In</h3>
-                        <form action="{{ url('admin') }}" method="post">
+                        <div class="text-center">
+                            <h5>Admin Login</h5>
+                        </div>
+                        <form action="{{ url('admin/login') }}" method="post">
                             @csrf
                             <div class="my-3">
-                                <label class="mb-2">Email</label>
-                                <input id="email" type="email"
-                                    class="form-control @error('email') is-invalid @enderror" name="email"
-                                    value="{{ old('email') }}" required autocomplete="email" placeholder="Enter email"
+                                <label class="mb-2">username</label>
+                                <input id="username" type="text"
+                                    class="form-control @error('username') is-invalid @enderror" name="username"
+                                    value="{{ old('username') }}" required autocomplete="username" placeholder="Enter username"
                                     autofocus>
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -9,7 +9,7 @@ class CreateAdminTable extends Migration
 {
     public function up()
     {
-        Schema::create('admin', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
             $table->string('username')->unique();
             $table->string('password');
@@ -23,11 +23,11 @@ class CreateAdminTable extends Migration
             'updated_at' => now(),
         ];
 
-        DB::table('admin')->insert($admin);
+        DB::table('admins')->insert($admin);
     }
 
     public function down()
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('admins');
     }
 }
